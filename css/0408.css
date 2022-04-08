@@ -1,0 +1,88 @@
+.main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#topnav ul ul {
+    display: block;
+}
+
+#topnav li img {
+    margin-left: -25px;
+}
+
+#topnav li {
+    list-style: none;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    float: left;
+    height: 50px;
+    margin-right: 2px;
+    border-radius: 4px;
+    color: #fff;
+    border-top: 4px solid #1cff7a;
+    border-right: 4px solid #21c771;
+    border-bottom: 4px solid #1b9d4f;
+    border-left: 4px solid #83ffaa;
+    border-radius: 0;
+    background: #22b464;
+}
+
+#topnav li:hover {
+    color: #fff;
+    border-top: 4px solid #1b9d4f;
+    border-right: 4px solid #83ffaa;
+    border-bottom: 4px solid #1cff7a;
+    border-left: 4px solid #21c771;
+}
+
+#topnav li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 20px;
+}
+
+.fadeLeft {
+    animation-name: fadeLeftAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeLeftAnime {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeRight {
+    animation-name: fadeRightAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeRightAnime {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
