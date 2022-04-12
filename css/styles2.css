@@ -72,11 +72,14 @@ article {
 
 .menupic img {
     width: 300px;
+    height: 220px;
 }
 
 .menupic div {
     margin-left: 30px;
     margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -169,7 +172,9 @@ body {
     border-bottom-right-radius: 20px;
 }
 
-.menupic p p {
+.menupic p {
+    margin-top: 15px;
+    margin-bottom: 15px;
     margin: 0;
     padding: 0;
 }
@@ -187,6 +192,9 @@ h1 p {
     padding: 0;
 }
 
-.iframe {
-    text-align: center;
+iframe {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    display: block;
 }
