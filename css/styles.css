@@ -86,3 +86,8 @@ header {
         transform: translateX(0);
     }
 }
+
+.iframe {
+    margin-right: auto;
+    margin-left: auto;
+}

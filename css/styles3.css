@@ -1,0 +1,21 @@
+/* iframe {
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.iframe {
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* .iframe {
+    margin-right: auto;
+    margin-left: auto;
+} */
+
+
+/* 
+.iframe {
+    text-align: center;
+} */

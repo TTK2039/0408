@@ -186,3 +186,7 @@ h1 p {
     margin: 0;
     padding: 0;
 }
+
+.iframe {
+    text-align: center;
+}
