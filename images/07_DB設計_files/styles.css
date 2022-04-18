@@ -1,0 +1,126 @@
+
+.content {
+    width: 60%;
+    padding: 24px;
+    margin: 0 10px;
+    background-color: aliceblue;
+    font-family: "メイリオ", "Meiryo", "Yu Gothic", "YakuHanJPs", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th,table td {
+    padding: 10px 5px;
+    text-align: center;
+    border: solid gray
+}
+
+table tr:nth-child(odd) {
+    background-color: #eee
+}
+table th {
+    background-color: white
+}
+
+a {
+    color: #006ef1;
+    display: inline-block;
+}
+
+.toc, .item-list {
+    background-color:aliceblue;
+    width: 300px;
+    height: fit-content;
+    position: sticky;
+    top: 0px;
+    overflow: auto;
+    max-height: 100vh;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+}
+
+.toc ul, .item-lsit ul {
+    list-style: none;
+    padding: 5px 20px;
+}
+
+nav ul a {
+    color: #006ef1;
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+    text-decoration: none;
+    padding: 3px 0;
+}
+
+nav a::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #31aae2;
+    transition: .3s;
+    transform: translateX(-50%);
+}
+  
+nav a:hover::after {
+    width: 100%;
+}
+
+.content img {
+    border: #006ef1 1px solid;
+}
+
+#meter {
+    background-color: #15214c;
+    color: #fff;
+    height: 35px;
+    width: 85px;
+    opacity: .502;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    line-height: 2.5;
+    font-size: 15px;
+}
+
+#bar {
+    background-color: #005bab;
+    opacity: .6;
+    height: 100px;
+    position: absolute;
+    text-align: center;
+}
+
+/** ログインページ **/
+.login_contents {
+    width: 30%;
+    margin: auto;
+    height: auto;
+    background-color: white;
+    text-align: center;
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.login_logo img {
+    width: 200px;
+    height: 100px;
+}
+
+.login_input {
+    width: 65%;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+}

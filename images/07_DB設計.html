@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_DB設計</title>
+    <link rel="icon" href="http://d37gtj0kzn5g40.cloudfront.net/images/index/favicon.ico" id="favicon">
+    <link rel="stylesheet" href="./07_DB設計_files/prism.css" type="text/css">
+    <link rel="stylesheet" href="./07_DB設計_files/common.css" type="text/css">
+    <link rel="stylesheet" href="./07_DB設計_files/styles.css" type="text/css">
+    <link href="./07_DB設計_files/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app"><div class="scroll-top">↑</div> <header class="top"><a href="http://d37gtj0kzn5g40.cloudfront.net/index.html" class="top_logo"><img src="./07_DB設計_files/logo.png" class="top_logo"></a> <form method="GET" action="http://d37gtj0kzn5g40.cloudfront.net/html/searchResult.html" class="search_container"><input type="text" name="keyword" size="25" placeholder=" キーワード検索"> <button type="submit"></button></form> <button onclick="location.href=&#39;/html/login.html&#39;" class="submit_btn top_login_btn">Login</button></header> <div class="top"><nav class="item-list"><p><strong>DB</strong></p> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_01_DBMS%E6%A6%82%E8%A6%81.html">01_DBMS概要</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_02_MySQL%E3%81%AE%E5%B0%8E%E5%85%A5.html">02_MySQLの導入</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_03_PostgreSQL%E3%81%AE%E5%B0%8E%E5%85%A5.html">03_PostgreSQLの導入</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_04_SQL%E5%85%A5%E9%96%80.html">04_SQL入門</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_05_SQL%E5%BF%9C%E7%94%A8.html">05_SQL応用</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_06_DBMS%E3%81%AE%E6%A9%9F%E8%83%BD.html">06_DBMSの機能</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html">07_DB設計</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_08_GUI%E3%83%84%E3%83%BC%E3%83%AB%E3%81%AE%E5%B0%8E%E5%85%A5.html">08_GUIツールの導入</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_09_SQL%E5%AE%9F%E8%B7%B5%E7%B7%A8.html">09_SQL実践編</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_10_%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9.html">10_インデックス</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_11_%E5%AE%9F%E8%A1%8C%E8%A8%88%E7%94%BB.html">11_実行計画</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_12_NoSQL.html">12_NoSQL</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_13_MongoDB.html">13_MongoDB</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_14_MySQL%E3%81%AE%E3%82%B9%E3%83%88%E3%82%A2%E3%83%89%E3%83%97%E3%83%AD%E3%82%B7%E3%83%BC%E3%82%B8%E3%83%A3.html">14_MySQLのストアドプロシージャ</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_%E5%8D%98%E5%85%83%E8%AA%B2%E9%A1%8C.html">単元課題</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C.html">演習問題</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C.html">練習問題</a></li></ul></nav> <div id="main" class="content"><hr> <p><b>スライド資料はこちらから</b></p> <p><a href="http://d37gtj0kzn5g40.cloudfront.net/pdf/DB_07_DB%E8%A8%AD%E8%A8%88.pdf" target="_blank">07_DB設計</a></p> <hr> <h1 id="1">DB設計</h1> <hr> <h2 id="2">概要</h2> <ul><li>データベース設計について学びます。</li> <li>テーブル設計の手法や考え方を学習します。</li></ul> <hr> <h2 id="3">データベース設計</h2> <p>データベースには「テーブル」「インデックス」「ストアドプロシージャ」などの要素があります。<br>
+データベースを有効に活用するためにはデータベースの設計が重要です。<br>
+データを矛盾なく効率よく保持するためには、テーブル設計が重要になります。<br>
+SQLの実行速度を最適化するにはインデックスの設計が重要です。<br>
+DBと連携するプログラムの負担を減らすには、ストアドプロシージャやトリガーなどをうまく活用することが重要です。<br>
+このテキストでは主にデータベース設計の中でも最も重要となるテーブル設計について学習します。</p> <hr> <h2 id="4">テーブル設計</h2> <p>単にデータを保存するだけであれば、データベースではなく、ファイルに保存する方法もあります。</p> <p>データベースを使う利点は、「管理のしやすさ」と「検索のしやすさ」です。<br>
+しかし「管理のしやすさ」を達成するためには、データベースの使い方をしっかりと考慮する必要があります。</p> <p>そのため、「設計」をすることが必要です。</p> <p>適切にデータを管理していないデータベースは、パフォーマンス（性能）の低下につながります。</p> <p>パフォーマンスの低下はサービスの質の低下につながりますので、データベースはプロジェクトに合わせて正しく設計することが重要です。</p> <hr> <h3 id="5">テーブルの設計は以下の手順で行います</h3> <ul><li>必要なデータの洗い出し</li> <li>データの正規化</li> <li>データ型の決定</li> <li>テーブル定義書の作成</li></ul> <hr> <h2 id="6">必要なデータの洗い出し</h2> <p>データの洗い出しは主に2種類あります。</p> <h3 id="7">1. 管理するデータの洗い出し</h3> <ul><li>実際に存在するデータ</li></ul> <h3 id="8">2. 管理に必要なデータの洗い出し</h3> <ul><li>実際には存在しないデータ</li> <li>管理に必要なデータとして、IDや管理番号という形で新しいデータを加えることもあります</li></ul> <p>管理するデータは要件によって異なりますが、どのような要件であっても、必要なデータの洗い出しは必ず行います。</p> <hr> <p>例として、下記の名刺から人物のデータを洗い出します。</p> <p><img src="./07_DB設計_files/95ae2856f7b48f1677e1fe25d04854572a8eb1ac82827bdcbf06f793ae2ab217.png" alt="picture 20"></p> <p>管理したいデータとして以下のようなデータがあげられます。</p> <ul><li>「山田 太郎」という名前</li> <li>「株式会社○○」という会社名</li></ul> <p>など
+文字の大きさや、フォントの種類などは人物のデータではないため、不要なデータと判断しています。</p> <hr> <p>続いて、洗い出したデータを整理するためにデータのカテゴリを考えます。<br>
+例えば、「システム事業部」というデータは{所属部署}というカテゴリに分類できます。</p> <p><img src="./07_DB設計_files/ae11f009085b173f33abc270fd0dec31c73a78b7fcca986af89a1ef093292e5f.png" alt="picture 21"></p> <hr> <p>整理すると、管理したいデータ以下のようになります。</p> <table><thead><tr><th align="left">データのカテゴリ</th> <th align="left">元のデータ</th></tr></thead> <tbody><tr><td align="left">所属部門</td> <td align="left">システム事業部</td></tr> <tr><td align="left">役職</td> <td align="left">主任</td></tr> <tr><td align="left">指名</td> <td align="left">山田太郎</td></tr> <tr><td align="left">メールアドレス</td> <td align="left">yamada_tarou@○○.com</td></tr> <tr><td align="left">会社名</td> <td align="left">株式会社 ○○</td></tr> <tr><td align="left">住所</td> <td align="left">〒123-4567 東京都△△区××町1-2-3</td></tr> <tr><td align="left">電話番号</td> <td align="left">03-1234-xxxx</td></tr> <tr><td align="left">FAX番号</td> <td align="left">03-1234-xxxy</td></tr> <tr><td align="left">サイトURL</td> <td align="left"><a href="http://www.xn--11ha.jp/">http://www.○○.jp</a></td></tr></tbody></table> <hr> <p>データベースに登録する際、このままだとデータを適切に管理できない可能性があります。</p> <p>管理に必要なデータを洗い出していないためです。</p> <p>複雑になり過ぎないように{会社名, 所属部署, 氏名}だけで考えていきます。</p> <p>例えば、同じ会社の同じ部署に同姓同名の「山田 太郎」さんが所属している場合を考えます。</p> <table><thead><tr><th align="left">会社名</th> <th align="left">所属部署</th> <th align="left">指名</th></tr></thead> <tbody><tr><td align="left">株式会社 ○○</td> <td align="left">システム事業部</td> <td align="left">山田 太郎</td></tr> <tr><td align="left">株式会社 ○○</td> <td align="left">システム事業部</td> <td align="left">山田 太郎</td></tr></tbody></table> <p>二人の「山田 太郎」さんのうち一人だけ部署を異動することになった場合、データベースのデータも変更しなければなりません。  しかし、全てのデータが一致してるため、どちらが部署を異動する「山田 太郎」さんか判断できません。</p> <hr> <p>この問題を解決する方法のひとつとして、「{氏名}には他の行と重複するデータを登録できない」という条件を考えます。<br>
+そうすれば、{氏名} をもとに対応する1行を特定でき、区別がつかなくなることはありません。<br>
+しかし、世の中には同姓同名の人物はいないとは限りません。<br>
+そのため、データベースとして「{氏名}には他の行と重複するデータを登録できない」という設計は適切ではないと考えられます。</p> <p>そこで管理に必要なデータとして、{登録ID}という名前の列を追加します。<br>
+{登録ID}は行を特定できるようしたいので、「001」から始まり、データが登録される度に「002」、「003」と1ずつ増えていくデータとします。</p> <table><thead><tr><th align="left">登録ID</th> <th align="left">会社名</th> <th align="left">所属部署</th> <th align="left">指名</th></tr></thead> <tbody><tr><td align="left">001</td> <td align="left">株式会社 ○○</td> <td align="left">システム事業部</td> <td align="left">山田 太郎</td></tr> <tr><td align="left">002</td> <td align="left">株式会社 ○○</td> <td align="left">システム事業部</td> <td align="left">山田 太郎</td></tr></tbody></table> <p>{登録ID}は1ずつ増えていくという性質上、重複しません。<br>
+こうすることで、それぞれの行を区別することができるようになります。<br>
+{登録ID}のように、1行のみを特定できる列、または列の組み合わせを候補キーと呼びます。</p> <hr> <p>データベースを設計する際は、候補キーの中から「使いやすい候補キー」を一つ選んで主キーに設定します。<br>
+候補キーでも主キーでもない列は非キーと呼ばれます。<br>
+先ほどのデータでは{登録ID}以外の列は重複する可能性があり非キーとなりますので{登録ID}を主キーに設定します。</p> <p><img src="./07_DB設計_files/01dcef5e8c268a3c98118226c47af1bc6b1300bf88995011073c8f56b203e459.png" alt="picture 22"></p> <hr> <p>候補キーについて詳しく見ていきます。<br>
+先ほどの例に「株式会社○○ の1番目の社員、株式会社○○ の2番目の社員、株式会社○○ の3番目の社員、株式会社 ××の1番目…」となるような、{社員番号}を追加して考えます。</p> <table><thead><tr><th align="right">登録ID</th> <th align="left">会社名</th> <th align="right">社員番号</th> <th align="left">所属部署</th> <th align="left">指名</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="left">株式会社 ○○</td> <td align="right">1</td> <td align="left">システム事業部</td> <td align="left">山田太郎</td></tr> <tr><td align="right">102</td> <td align="left">株式会社 ○○</td> <td align="right">2</td> <td align="left">システム事業部</td> <td align="left">鈴木次郎</td></tr> <tr><td align="right">103</td> <td align="left">株式会社 ○○</td> <td align="right">3</td> <td align="left">営業部</td> <td align="left">坂田三郎</td></tr> <tr><td align="right">104</td> <td align="left">株式会社 ××</td> <td align="right">1</td> <td align="left">システム事業部</td> <td align="left">井上四郎</td></tr></tbody></table> <p>「株式会社 ○○」の1番目は必ず一人だけになります。<br>
+そのため、{登録ID}も候補キーになりますが、それ以外にも{会社名, 社員番号}の組み合わせも候補キーとなります。<br>
+この場合、主キーはこの二つの候補キーから選ぶことになります。</p> <hr> <p><img src="./07_DB設計_files/75fed182973c1ef1ee5baefd980429d203b1801d6e123fb71f0bdfc9d854a5c2.png" alt="picture 23"></p> <hr> <h1 id="9">正規化</h1> <hr> <h2 id="10">正規化とは</h2> <p>正規化とは以下の目的のために、データを一定のルールに従って整理することです。</p> <ul><li>重複の排除</li> <li>データの整合性を保つ</li></ul> <p>例えば下記のような、学生情報を保持するテーブルA(氏名, 学部ID, 学部名)と、テーブルB(学部ID, 学部名) があったとします。<br>
+{学部ID}は各学部に一つずつ割り振られているデータです。</p> <p>テーブルA</p> <table><thead><tr><th align="left">指名</th> <th align="right">学部ID</th> <th align="left">学部名</th></tr></thead> <tbody><tr><td align="left">山田太郎</td> <td align="right">201</td> <td align="left">法学部</td></tr> <tr><td align="left">鈴木次郎</td> <td align="right">202</td> <td align="left">理工学部</td></tr> <tr><td align="left">坂田三郎</td> <td align="right">203</td> <td align="left">商学部</td></tr></tbody></table> <p>テーブルB</p> <table><thead><tr><th align="right">学部ID</th> <th align="left">学部名</th></tr></thead> <tbody><tr><td align="right">201</td> <td align="left">法学部</td></tr> <tr><td align="right">202</td> <td align="left">理工学部</td></tr> <tr><td align="right">203</td> <td align="left">経済学部</td></tr></tbody></table> <hr> <p>{学部ID}が203のデータを確認すると、テーブルAでは「商学部」、テーブルBでは「経済学部」となっており一致していません。<br>
+このようにあるテーブルに登録されているデータが他のテーブルでは別のデータとなっている状態が、「整合性が保たれていない」状態です。<br>
+整合性が保たれていないデータは、どちらのデータが正しいか判断できず、無意味なデータとなります。<br>
+このような不整合を発生させないために正規化を行う必要があります。<br>
+まずは正規化を行ううえで必要となる、関数従属について見ていきます。</p> <hr> <h3 id="11">関数従属</h3> <p>従属とは「他のものに付き従う」ことです。<br>
+関数従属している状態とは、「ある値から別の値も特定できる」という状態です。<br>
+先ほどのデータでは、{登録ID}を候補キーに設定しました。<br>
+このとき{登録ID}から{所属部署}、{氏名}、{会社名}が特定できます。<br>
+つまり、{会社名}と{所属部署}と{氏名}は{登録ID}に関数従属している状態です。</p> <p><img src="./07_DB設計_files/b6a6f703f75ac906fe957d152f86033303b44d48b7f38ec3356c4b51cac36608.png" alt="picture 24"></p> <hr> <h3 id="12">完全関数従属</h3> <p>以下のテーブルは、{講座番号, 出席番号}の組み合わせを候補キーと設定してます。<br>
+{生徒氏名}は{講座番号, 出席番号}から特定できます。</p> <p><img src="./07_DB設計_files/0b22f7825cf8673c723db62552a567fbca0f05c29e667d8bbf44db98283b6a97.png" alt="picture 25"></p> <p>つまり{生徒氏名}は{講座番号, 出席番号}に従属している状態です。<br>
+候補キーの全ての列に従属している状態を完全関数従属といいます。</p> <p><img src="./07_DB設計_files/3384242638c8c7fd9e7cf09903894b52425463de25842d97c4c6740102c82e12.png" alt="picture 26"></p> <hr> <h3 id="13">部分関数従属</h3> <p>先ほどのデータでは{講座番号, 出席番号}から1行が特定できます。<br>
+その中で{講座番号}は講座ひとつひとつに割り振られているデータです。</p> <p><img src="./07_DB設計_files/a281acba04d12a93017c3900e0721c7dc052aca7b12f1486dc4bd0f2eadaedad.png" alt="picture 27"></p> <p>つまり{講座名}は候補キーである{講座番号, 出席番号}のうち{講座番号}のみに従属している状態です。<br>
+このように候補キーの一部に従属している状態を部分関数従属といいます。</p> <p><img src="./07_DB設計_files/1e04385b87e6d57968d43981a26e26401d42b33cdb2bcdc9a98f28fc247200da.png" alt="picture 28"></p> <hr> <h3 id="14">推移関数従属</h3> <p>{所属企業ID} は企業ひとつひとつに割り振られているデータです。<br>
+つまり{所属企業名}は{所属企業ID}に従属しています。<br>
+また{所属企業ID}は候補キーである{講座番号, 出席番号}に従属しています。</p> <p><img src="./07_DB設計_files/a1b53a17becf08cf8ed2a59d94c50967bf7975b6e52ec0715777ef1db780c13d.png" alt="picture 29"></p> <p>つまり{講座番号, 出席番号}から{所属企業ID}が特定され、{所属企業ID}から{所属企業名}が特定されます。<br>
+このように推移的に候補キーに従属している状態を推移関数従属といいます。</p> <hr> <h2 id="15">正規化</h2> <p>正規化は段階を追って進めていきます。<br>
+その段階によって（整理された形によって）呼び方が決まっています
+その段階ごとの、第1正規形、第2正規形、第3正規形について確認していきます</p> <ul><li>第1正規形
+<ul><li>繰り返し項目がなく、管理するデータが値のみの状態</li> <li>繰り返し項目を分解し、別々の行に分けるという手順を踏む</li></ul></li> <li>第2正規形
+<ul><li>第1正規形でかつ全ての非キー属性が、全ての候補キーに完全関数従属している状態</li> <li>第1正規形の状態から部分関数従属しているキーを分離するという手順を踏む</li></ul></li> <li>第3正規形
+<ul><li>第2正規形でかつ全ての非キー属性が、全ての候補キーに非推移的に関数従属している状態</li> <li>第2正規形の状態から推移関数従属しているキーを分離するという手順を踏む</li></ul></li></ul> <hr> <h3 id="16">非正規系</h3> <p>以下のテーブルは、非正規形になっています。<br>
+生徒指名、所属企業名が繰り返し項目になっています。<br>
+明らかにデータの不整合が起きそう、かつ、管理しにくい構造になっています。</p> <table><thead><tr><th align="right">講座番号</th> <th align="left">講座名</th> <th align="left">生徒指名</th> <th align="left">所属企業名</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="left">Java講座</td> <td align="left">山田太郎、鈴木次郎</td> <td align="left">株式会社A、株式会社B</td></tr> <tr><td align="right">102</td> <td align="left">PHP講座</td> <td align="left">坂田三郎</td> <td align="left">株式会社C</td></tr> <tr><td align="right">103</td> <td align="left">インフラ講座</td> <td align="left">山田太郎、坂田三郎、井上四郎</td> <td align="left">株式会社A、株式会社B、株式会社C</td></tr></tbody></table> <p>繰り返し構造のデータを排除することが第一正規化になります。<br>
+第一正規化された形のデータを、第一正規形と呼びます。</p> <hr> <h3 id="17">第一正規化</h3> <p>第一正規化された形は以下のようになります。<br>
+主キーは講座番号と出席番号になります。</p> <table><thead><tr><th align="right">講座番号</th> <th align="left">講座名</th> <th align="left">出席番号</th> <th align="left">生徒指名</th> <th align="right">所属企業ID</th> <th align="left">所属企業名</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="left">Java講座</td> <td align="left">1</td> <td align="left">山田太郎</td> <td align="right">201</td> <td align="left">株式会社A</td></tr> <tr><td align="right">101</td> <td align="left">Java講座</td> <td align="left">2</td> <td align="left">鈴木次郎</td> <td align="right">202</td> <td align="left">株式会社B</td></tr> <tr><td align="right">102</td> <td align="left">PHP講座</td> <td align="left">3</td> <td align="left">坂田三郎</td> <td align="right">203</td> <td align="left">株式会社C</td></tr> <tr><td align="right">103</td> <td align="left">インフラ講座</td> <td align="left">4</td> <td align="left">井上四郎</td> <td align="right">203</td> <td align="left">株式会社A</td></tr> <tr><td align="right">103</td> <td align="left">インフラ講座</td> <td align="left">3</td> <td align="left">坂口三郎</td> <td align="right">203</td> <td align="left">株式会社C</td></tr> <tr><td align="right">103</td> <td align="left">インフラ講座</td> <td align="left">1</td> <td align="left">山田太郎</td> <td align="right">201</td> <td align="left">株式会社A</td></tr></tbody></table> <hr> <p>第一正規系には以下のような問題があります。</p> <ul><li>新しい講座情報を登録するとき、生徒がいなければ登録できない</li> <li>会社情報だけを登録することができない</li> <li>会社情報の更新の際に漏れがあると不整合が起きる可能性がある</li> <li>講座情報の更新の際に漏れがあると不整合が起きる可能性がある</li></ul> <p>これらの問題を解決するために、続いて第二正規化を行う必要があります。<br>
+第二正規化では、部分関数従属している部分を切り出します。<br>
+主キーは講座番号と出席番号なので、講座名と生徒指名が部分関数従属していることが分かります。</p> <hr> <h3 id="18">第二正規化</h3> <p>第二正規形は以下になります。</p> <p>講座</p> <table><thead><tr><th align="right">講座番号</th> <th align="left">講座名</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="left">Java講座</td></tr> <tr><td align="right">102</td> <td align="left">PHP講座</td></tr> <tr><td align="right">103</td> <td align="left">インフラ講座</td></tr></tbody></table> <p>生徒</p> <table><thead><tr><th align="right">出席番号</th> <th align="left">名前</th> <th align="right">所属企業ID</th> <th align="left">所属企業名</th></tr></thead> <tbody><tr><td align="right">1</td> <td align="left">山田太郎</td> <td align="right">201</td> <td align="left">株式会社A</td></tr> <tr><td align="right">2</td> <td align="left">鈴木次郎</td> <td align="right">202</td> <td align="left">株式会社B</td></tr> <tr><td align="right">3</td> <td align="left">坂田三郎</td> <td align="right">203</td> <td align="left">株式会社C</td></tr> <tr><td align="right">4</td> <td align="left">井上四郎</td> <td align="right">201</td> <td align="left">株式会社A</td></tr></tbody></table> <hr> <p>受講講座</p> <table><thead><tr><th align="right">講座番号</th> <th align="right">出席番号</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="right">1</td></tr> <tr><td align="right">101</td> <td align="right">2</td></tr> <tr><td align="right">102</td> <td align="right">1</td></tr> <tr><td align="right">103</td> <td align="right">1</td></tr> <tr><td align="right">103</td> <td align="right">3</td></tr> <tr><td align="right">103</td> <td align="right">4</td></tr></tbody></table> <hr> <p>第二正規化によってテーブルが3つに分かれました。<br>
+講座に関しては独立して新しくデータを登録したり、修正が発生しても不整合が起きないようになりました。<br>
+しかし、まだ以下の問題があります。</p> <ul><li>所属企業を単独で新しく追加できない</li> <li>株式会社Aの名前を修正した際、片方だけ修正してしまうと、不整合が発生する</li></ul> <p>この問題を解決するために、第三正規化を行います。<br>
+第三正規化では、推移関数従属を排除します。<br>
+ここでは生徒のテーブルで、所属企業名が推移関数従属しています。<br>
+（生徒テーブルの主キーは出席番号だが、所属企業名は所属企業IDに関数従属しているため）</p> <hr> <h3 id="19">第三正規化</h3> <p>生徒テーブルを第三正規化すると以下のようになります。</p> <p>生徒</p> <table><thead><tr><th align="right">出席番号</th> <th align="left">名前</th> <th align="right">所属企業ID</th></tr></thead> <tbody><tr><td align="right">1</td> <td align="left">山田太郎</td> <td align="right">201</td></tr> <tr><td align="right">2</td> <td align="left">鈴木次郎</td> <td align="right">202</td></tr> <tr><td align="right">3</td> <td align="left">坂田三郎</td> <td align="right">203</td></tr> <tr><td align="right">4</td> <td align="left">井上四郎</td> <td align="right">201</td></tr></tbody></table> <p>企業</p> <table><thead><tr><th align="right">所属企業ID</th> <th align="left">所属企業名</th></tr></thead> <tbody><tr><td align="right">201</td> <td align="left">株式会社A</td></tr> <tr><td align="right">202</td> <td align="left">株式会社B</td></tr> <tr><td align="right">203</td> <td align="left">株式会社C</td></tr></tbody></table> <hr> <p>最終的に全体としては以下の４つのテーブルになります。</p> <p>講座</p> <table><thead><tr><th align="right">講座番号</th> <th align="left">講座名</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="left">Java講座</td></tr> <tr><td align="right">102</td> <td align="left">PHP講座</td></tr> <tr><td align="right">103</td> <td align="left">インフラ講座</td></tr></tbody></table> <p>生徒</p> <table><thead><tr><th align="right">出席番号</th> <th align="left">名前</th> <th align="right">所属企業ID</th></tr></thead> <tbody><tr><td align="right">1</td> <td align="left">山田太郎</td> <td align="right">201</td></tr> <tr><td align="right">2</td> <td align="left">鈴木次郎</td> <td align="right">202</td></tr> <tr><td align="right">3</td> <td align="left">坂田三郎</td> <td align="right">203</td></tr> <tr><td align="right">4</td> <td align="left">井上四郎</td> <td align="right">201</td></tr></tbody></table> <hr> <p>企業</p> <table><thead><tr><th align="right">所属企業ID</th> <th align="left">所属企業名</th></tr></thead> <tbody><tr><td align="right">201</td> <td align="left">株式会社A</td></tr> <tr><td align="right">202</td> <td align="left">株式会社B</td></tr> <tr><td align="right">203</td> <td align="left">株式会社C</td></tr></tbody></table> <p>受講講座</p> <table><thead><tr><th align="right">講座番号</th> <th align="right">出席番号</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="right">1</td></tr> <tr><td align="right">101</td> <td align="right">2</td></tr> <tr><td align="right">102</td> <td align="right">1</td></tr> <tr><td align="right">103</td> <td align="right">1</td></tr> <tr><td align="right">103</td> <td align="right">3</td></tr> <tr><td align="right">103</td> <td align="right">4</td></tr></tbody></table> <hr> <h3 id="20">正規化の補足1</h3> <p>正規化は、理論上は第三正規化以降にもいくつかあります。</p> <ul><li>ボイス・コッド正規化</li> <li>第四正規化</li> <li>第五正規化</li></ul> <p>ただし、通常は第三正規化まで行えば、結果として第五正規化まで行われている状態になることがほとんどです。<br>
+そのため、業務上は基本的に意識する場面はほぼないと思われますが、興味があれば調べてみてください。</p> <hr> <h3 id="21">正規化の補足2</h3> <p>通常、正規化を行う過程では計算結果から導かれる項目（導出項目）も排除します。  例えば以下のようなデータがあったとします。</p> <p>売上テーブル</p> <table><thead><tr><th align="left">伝票番号</th> <th align="left">日付</th> <th align="left">商品コード</th> <th align="right">単価</th> <th align="right">数量</th> <th align="right">金額</th></tr></thead> <tbody><tr><td align="left">0001</td> <td align="left">2020/1/2</td> <td align="left">A001</td> <td align="right">100</td> <td align="right">15</td> <td align="right">1500</td></tr></tbody></table> <p>このデータを見ると、金額のカラムは単価×数量で計算できる導出項目になっているので、正規化の観点からは削除することができます。</p> <hr> <p>ただし、実際の業務では金額が必ずしも単価×数量とならない場合もあります。<br>
+例えば、以下のようなデータが存在するとします。</p> <table><thead><tr><th align="left">伝票番号</th> <th align="left">日付</th> <th align="left">商品コード</th> <th align="right">単価</th> <th align="right">数量</th> <th align="right">金額</th></tr></thead> <tbody><tr><td align="left">0002</td> <td align="left">2020/1/3</td> <td align="left">B001</td> <td align="right">200</td> <td align="right">30</td> <td align="right">5000</td></tr></tbody></table> <p>この場合、金額が単価×数量になっていません。<br>
+データに不整合が起きている可能性もありますが、実際には取引の際に値引が発生し、その結果として金額が変更された可能性もあります。<br>
+その場合、金額のカラムがなければ正しいデータが保存できなくなるため、金額を削除することはできません。</p> <p>テーブルの構造だけでは重複しているように見えるデータでも、実は業務の都合上必要があって追加されている情報である場合もあります。<br>
+実際の業務では、正規化されているかどうかは、テーブルの構造だけを見て判断せずに業務の知識を前提として考えることが重要です。</p> <hr> <h1 id="22">ER図</h1> <p>データを洗い出し、正規化を行うと多数のテーブルが出てきます。<br>
+全体像を理解するために、「各テーブルが持っている列」と「テーブル間の関連」をまとめた図を作成します。<br>
+まとめた図をER図といい、図中では、テーブルを「エンティティ」、テーブル間の関連を「リレーションシップ」として表します。</p> <p>ER図はデータベースで管理するデータとその関連を抽象的に表現することができる手法の一つです。<br>
+会社や社員、学校、商品などの実体（エンティティ）に対して、雇用や納品などの関連（リレーションシップ）が存在するという考え方です。<br>
+ER図の表記方法として、主に以下の二つを紹介します。</p> <ul><li>IE記法</li> <li>IDEF1X記法</li></ul> <p>IE記法とIDEF1X記法の主な違いは、多重度(カーディナリティ)の書き方の違いです。<br>
+※多重度は、実体と実体の関連の対応関係を表す。</p> <hr> <h3 id="23">IE（Information Engineering）記法</h3> <p>James Martinという人が提唱したデータベースの設計に特化したER図表記法です。<br>
+リレーションシップが鳥の足のような形をしていることから、別名「鳥の足記法」とも呼ばれています。<br>
+IDEF1X記法に比べて、リレーションシップが直感的に理解しやすいという特徴を持っています。<br>
+多重度は下記のように表現します。</p> <p><img src="./07_DB設計_files/cbde12021e8b967dffa8065859e7d0bfc62e0d56a9d3f320442180353ed47bf8.png" alt="picture 30"></p> <p>IE記法の記述例</p> <p><img src="./07_DB設計_files/027ce4a993b2a440e9b2adc160bb5e10bfc0116eb635b14888340b0da6b5c351.png" alt="picture 31"></p> <p>部署、社員という実体があり、部署と社員は「1 対 多」の関係性があるので、1つの部署には、複数の社員が所属していて、社員は、1つの部署に所属していることを表しています。</p> <hr> <p>先に正規化の例で使用したテーブルをIE記法で表すと以下のようになります。</p> <p><img src="./07_DB設計_files/1424b71e500a76348e7dff958974e3843f45deb465913741e68b879c740dd97c.png" alt="picture 32"></p> <hr> <h3 id="24">IDEF1X（Integration Definition）記法</h3> <p>米国標準技術研究所（NIST）が規格化した、データベースの設計に特化した表記方法です。<br>
+リレーションシップを「●」などで表現することが特徴です。<br>
+IE記法より細かい表現ができますが、その分IE記法に比べて直感的な分かりやすさは低くなります。<br>
+多重度は下記のように表現します。</p> <table><thead><tr><th align="center">記号</th> <th align="left">意味</th></tr></thead> <tbody><tr><td align="center">なし</td> <td align="left">1</td></tr> <tr><td align="center">●</td> <td align="left">0以上</td></tr> <tr><td align="center">●P</td> <td align="left">1以上</td></tr> <tr><td align="center">●Z</td> <td align="left">0または1</td></tr> <tr><td align="center">●N</td> <td align="left">指定した数(Nは実数)</td></tr> <tr><td align="center">●N-M</td> <td align="left">指定した範囲数(N,Mは実数)</td></tr> <tr><td align="center">◇</td> <td align="left">0または1</td></tr></tbody></table> <hr> <h3 id="25">IDEF1X記法の記述例</h3> <p><img src="./07_DB設計_files/39816a1a03c96109e80067428b24f778361d63c1090af9548acb2a376fcd4b87.png" alt="picture 33"></p> <p>部署、社員という実体があり、部署と社員は「1 対 多」の関係性があるので、1つの部署には、複数の社員が所属していて、社員は、1つの部署に所属していることを表しています。</p> <hr> <h2 id="26">データ型の決定</h2> <p>利用するデータベースがまだ決まっていない段階では「文字列」型としておき、データベースが決まったら「VARCHAR」型のように、段階的に詳細に決定していくことになります。</p> <table><thead><tr><th align="right">講座番号</th> <th align="right">出席番号</th> <th align="right">生徒指名</th></tr></thead> <tbody><tr><td align="right">101</td> <td align="right">1</td> <td align="right">佐藤太郎</td></tr> <tr><td align="right">101</td> <td align="right">2</td> <td align="right">鈴木次郎</td></tr> <tr><td align="right">102</td> <td align="right">1</td> <td align="right">坂田三郎</td></tr></tbody></table> <p>同じ種類のデータであったとしても、データベースによって用意されているデータ型は異なる場合があります。<br>
+例えば「文字列」型一つとっても、「VARCHAR2」や「nvarchar」、「VARCHAR」、「character varying」などさまざまです。</p> <p>利用するデータベースがまだ決まっていない段階では「文字列」型としておき、データベースが決まったら「VARCHAR」型のように、段階的に詳細に決定していくことになります。</p> <hr> <h2 id="27">テーブル定義書</h2> <p>正規化を行いデータ型を定めたら設計書に起こします。<br>
+テーブル定義書のフォーマットは現場によって異なりますが、主に以下の内容を記載することになります。</p> <ul><li>論理名称
+<ul><li>認識しやすい名称とし、日本語で付けることが多いです</li></ul></li> <li>物理名称
+<ul><li>利用するデータベースのルールに合わせた名称とします</li></ul></li> <li>データ型（桁数）
+<ul><li>利用するデータベースで用意されているデータ型から決定します</li> <li>桁数は、想定されるデータ全てを格納できるように設定します</li></ul></li> <li>制約
+<ul><li>管理するデータの整合性が崩れないよう、適切な制約を設定します</li></ul></li></ul> <hr> <h3 id="28">テーブル設計の例</h3> <p><img src="./07_DB設計_files/b41f38d7edb50861fa21a41a740e6098ee2a757a17618d756bd104f9cf120304.png" alt="picture 34"></p> <p>「ER図」と「テーブル定義書」がデータベース設計のアウトプットです。<br>
+実際の開発では一度作った後でも修正は入りますが、大事なことは作成した「データベース」と「設計書」がきちんと対応づいていることです。</p></div> <nav class="toc"><ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#1">DB設計</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#2">概要</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#3">データベース設計</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#4">テーブル設計</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#5">テーブルの設計は以下の手順で行います</a></li></ul></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#6">必要なデータの洗い出し</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#7">1. 管理するデータの洗い出し</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#8">2. 管理に必要なデータの洗い出し</a></li></ul></li></ul></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#9">正規化</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#10">正規化とは</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#11">関数従属</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#12">完全関数従属</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#13">部分関数従属</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#14">推移関数従属</a></li></ul></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#15">正規化</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#16">非正規系</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#17">第一正規化</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#18">第二正規化</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#19">第三正規化</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#20">正規化の補足1</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#21">正規化の補足2</a></li></ul></li></ul></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#22">ER図</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#23">IE（Information Engineering）記法</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#24">IDEF1X（Integration Definition）記法</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#25">IDEF1X記法の記述例</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#26">データ型の決定</a></li> <li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#27">テーブル定義書</a> <ul><li><a href="http://d37gtj0kzn5g40.cloudfront.net/html/DB_07_DB%E8%A8%AD%E8%A8%88.html#28">テーブル設計の例</a></li></ul></li></ul></li></ul></nav></div> <div id="meter"><div id="bar" style="width: 61%;"></div> <div id="progress">61%</div></div></div>
+    <script src="./07_DB設計_files/vue.min.js.ダウンロード"></script>
+    <script src="./07_DB設計_files/prism.js.ダウンロード"></script>
+    <script src="./07_DB設計_files/header.js.ダウンロード"></script>
+    <script>
+      'use strict'
+      new Vue({
+        el: "#app",
+        data: {
+          category: "DB",
+          title: "07_DB設計",
+          INTERVAL: 3000,
+          timeoutId: null,
+          maxScroll: 0,
+        },
+        methods: {
+            updateProgress() {
+                let params = new URLSearchParams();
+                params.append('category', this.category)
+                params.append('title', this.title)
+                params.append('progress', this.maxScroll)
+                fetch('http://localhost:3000/api/updateProgress', {
+                    method: "POST",
+                    body: params,
+                })
+                .finally(() => this.timeoutId = null)
+            },
+            handleScroll() {
+                const hiddenHeight =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+                //  スクロール量（px）: D
+                const scrollPx = document.documentElement.scrollTop;
+                //  スクロール量(%)：E = D / C * 100
+                const scrollValue = Math.round((scrollPx / hiddenHeight) * 100);
+                if (this.maxScroll < scrollValue) {
+                    this.maxScroll = scrollValue;
+
+                    // 運用環境への適用方法が決まるまで一旦コメントアウト
+                    // clearTimeout(this.timeoutId);
+                    // this.timeoutId = setTimeout(this.updateProgress, this.INTERVAL);
+            
+                }
+            },
+            scrollTop() {
+                const target = document.getElementById('js-scroll-top');
+                let current = window.pageYOffset; // 現在のスクロール位置を取得
+                console.log('akaricurrent',[current]);
+                let step = 150/current > 1 ? 10 : 100; // 三項演算子
+                console.log('akaristep',[step]);
+                let timeStep = 150/current * step; // スクロール時間
+                let intervalId = setInterval(function(){
+                    current = window.pageYOffset;
+                    if(current === 0) {
+                        clearInterval(intervalId); // ページ最上部に来たら終了
+                    } else {
+                        scrollBy( 0, -step ); // step分上へスクロール
+                    }
+                }, timeStep);
+            },
+        },
+        created: function() {
+            fetch('http://localhost:3000/api/getProgress?category=' + this.category + '&title=' + this.title, {
+                method: 'get'
+            }).then(res => res.json().then(json => {
+                this.maxScroll = json === null ? 0 : json.progress;
+            }))
+        },
+        mounted() {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+      });
+    
+    </script>
+
+
+</body></html>

@@ -1,0 +1,20 @@
+Vue.component('vue-header', {
+    data: function() {
+        return {
+        }
+    },
+    methods: {
+    },
+    created: function() {
+    },
+    template: `
+<header class="top">
+    <a href="/index.html" class="top_logo"><img src="/images/index/logo.png" class="top_logo"></a>
+    <form method="GET" action="/html/searchResult.html" class="search_container">
+        <input type="text" name="keyword" size="25" placeholder=" キーワード検索">
+        <button type="submit">&#xf002</button>
+    </form>
+    <button onclick="location.href='/html/login.html'" class="submit_btn top_login_btn">Login</a>
+</header>
+`
+})
